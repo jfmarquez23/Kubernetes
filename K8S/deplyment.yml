@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - name: django
+        image: jfmarquez23/python_devops:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SECRET_KEY
+          value: "clave secreta"
+        - name: DEBUG
+          value: "False"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+spec:
+  selector:
+    app: django
+  ports:
+   - port: 8000
+     targetPort: 8000
+  type: LoadBalancer

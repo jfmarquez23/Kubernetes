@@ -9,12 +9,12 @@ on:
       - master
 
 jobs:
-  build-test-analysis:
+  build-test-analysis-docker-kubernetes:
     runs-on: ubuntu-latest
 
     #CodeCheck
     steps:
-    - name: Checkout code
+    - name: Chequear codigo
       uses: actions/checkout@v2
  
     #CodeBuild
@@ -29,29 +29,29 @@ jobs:
         pip install -r requirements.txt
 
     #Migracion BDD
-    - name: Run migrations
+    - name: Run migrations BDD
       run: python manage.py migrate
 
     #Test
-    - name: Ejecutar tests
+    - name: Ejecutar Test
       run: |
         python manage.py test
 
     # Code Coverage
-    - name: Check code coverage
+    - name: Cobertura de codigo
       run: |
         pip install coverage
         coverage run manage.py test
         coverage report  
   
     #Construir Imagen y Subirla en DockerHub
-    - name: Log in to Docker Hub
+    - name: Login Docker_Hub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME  }}
         password: ${{ secrets.DOCKER_PASSWORD  }}
 
-    - name: Build and push
+    - name: Construir imagen y subirla
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -60,7 +60,7 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/python_devops:latest  # Nombre de la imagen
 
     # Escaneo Vulnerabilidades imagen
-    - name: Scan the Docker image
+    - name: Scanear la imagen
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: 'jfmarquez23/python_devops:latest'
@@ -85,7 +85,7 @@ jobs:
         minikube start
 
     # Cargar la imagen de Docker Hub
-    - name: Checkout
+    - name: Verificar imagen
       uses: actions/checkout@v2
       
     - name: Cargar imagen en Minikube
