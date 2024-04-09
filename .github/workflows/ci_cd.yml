@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - master  #Nombre de la rama
+      - main  #Nombre de la rama
   pull_request:
     branches:
       - master
