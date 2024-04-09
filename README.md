@@ -1,8 +1,15 @@
 # Ejemplo de DevOps
 
-This is a simple application to be used in the technical test of DevOps.
+Este es un ejemplo de un ciclo completo de DevOps.
 
-## Getting Started
+## Detalles
+En este ejemplo vamos a:
+**Dockerizar una aplicacion Django con Python, los cuales constan de: 
+*env vars.
+*run user.
+*port.
+*healthcheck
+*etc.
 
 ### Prerequisites
 
