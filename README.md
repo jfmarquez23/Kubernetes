@@ -1,14 +1,38 @@
-# Demo Devops Python
+# Ejemplo de DevOps
 
-This is a simple application to be used in the technical test of DevOps.
+Este es un ejemplo de un ciclo completo de DevOps.
 
-## Getting Started
+# Detalles
+Vamos a usar:
+## Docker
+Dockerizar una aplicacion Django con Python, los cuales constan de: 
+- env vars.
+- run user.
+- port.
+- healthcheck
+- etc.
 
-### Prerequisites
+## GitActions
+Vamos a generar un pipeline para CI/CD como codigo que incluya los siguientes pasos:
+- Code Build
+- Unit Test
+- Static Code analysis
+- Code coverage
+- Contruir y subir la imagen (Docker build & push)
+
+## Kubernetes
+Desplegar la aplicacion dockerizada en Kubernetes, con al menos 2 replicas y escalamiento horizantal.
+- Configmaps
+- Secrets
+- Ingress
+- etc.
+
+### Prerrequisitos
+La aplicación esta construida con Django con Python
 
 - Python 3.11.3
 
-### Installation
+### Instalacion
 
 Clone this repo.
 
@@ -16,48 +40,48 @@ Clone this repo.
 git clone https://bitbucket.org/devsu/demo-devops-python.git
 ```
 
-Install dependencies.
+Instalar dependencias.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Migrate database
+Migrar la BDD
 
 ```bash
 py manage.py makemigrations
 py manage.py migrate
 ```
 
-### Database
+### BDD
 
-The database is generated as a file in the main path when the project is first run, and its name is `db.sqlite3`.
+La base de datos se genera como un archivo en la ruta principal cuando el proyecto se ejecuta por primera vez y su nombre es `db.sqlite3`.
 
-Consider giving access permissions to the file for proper functioning.
+Considere otorgar permisos de acceso al archivo para su correcto funcionamiento.
 
-## Usage
+## Uso
 
-To run tests you can use this command.
+Para ejecutar pruebas puedes usar este comando.
 
 ```bash
 py manage.py test
 ```
 
-To run locally the project you can use this command.
+Para ejecutar localmente el proyecto puedes usar este comando.
 
 ```bash
 py manage.py runserver
 ```
 
-Open http://localhost:8000/api/ with your browser to see the result.
+Abrir http://localhost:8000/api/ en cualquier browser.
 
-### Features
+### Funciones de la Aplicacion
 
-These services can perform,
+Este microservicio puede:
 
-#### Create User
+#### Crear usuario
 
-To create a user, the endpoint **/api/users/** must be consumed with the following parameters:
+Para crear un usuario, el endpoint **/api/users/** se debe consumir con los siguientes parámetros:
 
 ```bash
   Method: POST
@@ -70,7 +94,7 @@ To create a user, the endpoint **/api/users/** must be consumed with the followi
 }
 ```
 
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+Si la respuesta es exitosa, el servicio devolverá un Estado HTTP 200 y un mensaje con la siguiente estructura:
 
 ```json
 {
@@ -80,7 +104,7 @@ If the response is successful, the service will return an HTTP Status 200 and a 
 }
 ```
 
-If the response is unsuccessful, we will receive status 400 and the following message:
+Si la respuesta no tiene éxito, recibiremos el estado 400 y el siguiente mensaje:
 
 ```json
 {
@@ -88,15 +112,15 @@ If the response is unsuccessful, we will receive status 400 and the following me
 }
 ```
 
-#### Get Users
+#### Obtener Usuarios
 
-To get all users, the endpoint **/api/users** must be consumed with the following parameters:
+Para obtener todos los usuarios, the endpoint **/api/users** se debe consumir con el siguiente parámetro:
 
 ```bash
   Method: GET
 ```
 
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+Si la respuesta es exitosa, el servicio devolverá un Estado HTTP 200 y un mensaje con la siguiente estructura:
 
 ```json
 [
@@ -108,15 +132,16 @@ If the response is successful, the service will return an HTTP Status 200 and a 
 ]
 ```
 
-#### Get User
+#### Obtener un usuario
 
-To get an user, the endpoint **/api/users/<id>** must be consumed with the following parameters:
+Para obtener un usuario, el endpoint **/api/users/<id>** se debe consumir con el siguiente parámetro:
 
 ```bash
   Method: GET
 ```
 
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+
+Si la respuesta es exitosa, el servicio devolverá un estado HTTP 200 y un mensaje con la siguiente estructura:
 
 ```json
 {
@@ -126,7 +151,7 @@ If the response is successful, the service will return an HTTP Status 200 and a 
 }
 ```
 
-If the user id does not exist, we will receive status 404 and the following message:
+Si la identificación del usuario no existe, recibiremos el estado 404 y el siguiente mensaje:
 
 ```json
 {
@@ -134,6 +159,6 @@ If the user id does not exist, we will receive status 404 and the following mess
 }
 ```
 
-## License
-
+## Licencia
+La aplicacion para el ejemplo fue obtenida de un repositorio de Devsu, se puede poner cualquier repositorio  que sea una app Django con Python.
 Copyright © 2023 Devsu. All rights reserved.
