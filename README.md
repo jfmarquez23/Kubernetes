@@ -2,14 +2,29 @@
 
 Este es un ejemplo de un ciclo completo de DevOps.
 
-## Detalles
-En este ejemplo vamos a usar:
+# Detalles
+Vamos a usar:
 ## Docker
-**Dockerizar una aplicacion Django con Python, los cuales constan de: 
+Dockerizar una aplicacion Django con Python, los cuales constan de: 
 - env vars.
 - run user.
 - port.
 - healthcheck
+- etc.
+
+## GitActions
+Vamos a generar un pipeline para CI/CD como codigo que incluya los siguientes pasos:
+- Code Build
+- Unit Test
+- Static Code analysis
+- Code coverage
+- Contruir y subir la imagen (Docker build & push)
+
+## Kubernetes
+Desplegar la aplicacion dockerizada en Kubernetes, con al menos 2 replicas y escalamiento horizantal.
+- Configmaps
+- Secrets
+- Ingress
 - etc.
 
 ### Prerequisites
