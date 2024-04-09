@@ -3,13 +3,14 @@
 Este es un ejemplo de un ciclo completo de DevOps.
 
 ## Detalles
-En este ejemplo vamos a:
+En este ejemplo vamos a usar:
+## Docker
 **Dockerizar una aplicacion Django con Python, los cuales constan de: 
-*env vars.
-*run user.
-*port.
-*healthcheck
-*etc.
+- env vars.
+- run user.
+- port.
+- healthcheck
+- etc.
 
 ### Prerequisites
 
