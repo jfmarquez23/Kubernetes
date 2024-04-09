@@ -84,19 +84,22 @@ jobs:
       run: |
         minikube start
 
-    # Cargar la imagen de Docker Hub
-    - name: Verificar imagen
-      uses: actions/checkout@v2
+    #Instalar Kubectl    
+    - name: Kubectl
+      uses: steebchen/kubectl@v2
+      with:
+        version: latest
       
-    - name: Cargar imagen en Minikube
+    - name: Build and push Docker image
       run: |
-        kubectl apply -f K8S/imagen_docker.yml
+        docker build -t nombre de la imagen:latest .
+        minikube image load tu-imagen:latest
         
-    # Apply kubernetes deployment and service
-    - name: Desplegar la aplicación
+    #Desplegar en Minikube
+    - name: Deploy to Minikube
       run: |
-        kubectl apply -f K8S/prueba.yml
-        kubectl expose deployment django-deployment --type=NodePort --port=8001
+        kubectl apply -f kubernetes/deployment.yaml
+        kubectl apply -f kubernetes/service.yaml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
