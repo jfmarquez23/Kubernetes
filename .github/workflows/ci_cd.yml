@@ -37,10 +37,6 @@ jobs:
       run: |
         python manage.py test
 
-    #Archivos estaticos 
-    - name: Collect static files
-      run: python manage.py collectstatic --noinput
-
     # Code Coverage
     - name: Check code coverage
       run: |
