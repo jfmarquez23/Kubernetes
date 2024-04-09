@@ -21,7 +21,7 @@ Vamos a generar un pipeline para CI/CD como codigo que incluya los siguientes pa
 - Contruir y subir la imagen (Docker build & push)
 
 ## Kubernetes
-Desplegar la aplicacion dockerizada en Kubernetes, con al menos 2 replicas y escalamiento horizantal.
+Desplegar la aplicacion dockerizada en Kubernetes con MiniKube, con al menos 2 replicas y escalamiento horizantal.
 - Configmaps
 - Secrets
 - Ingress
