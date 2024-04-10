@@ -85,10 +85,10 @@ jobs:
         minikube start
 
     #Instalar Kubectl    
-    - name: Kubectl
-      uses: steebchen/kubectl@v2
-      with:
-        version: latest
+    - name: Instalar kubectl
+      run: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
       
     - name: Instalar MiniKube
       run: |
