@@ -99,8 +99,3 @@ jobs:
     - name: Informacion Cluster
       run: |
         kubectl get services
-
-    # URL Load Balancer 
-    - name: Info Load Balancer
-      run: |
-        minikube service my-app --url
