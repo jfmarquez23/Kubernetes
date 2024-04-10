@@ -22,7 +22,7 @@ COPY .env .
 # Copie el contenido del directorio actual en el contenedor en /app
 COPY . .
 
-# Exponga el puerto 8000 para permitir la comunicación con el servidor Django
+# Exponga el puerto 8000 para permitir la comunicación con el servidor
 EXPOSE 8000
 
 # Ejecuta las migraciones de la base de datos
