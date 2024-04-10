@@ -97,8 +97,8 @@ jobs:
     #Desplegar en Minikube
     - name: Deploy to Minikube
       run: |
-        kubectl apply -f kubernetes/deployment.yaml
-        kubectl apply -f kubernetes/service.yaml
+        kubectl apply -f K8S/deployment.yaml
+        kubectl apply -f K8S/service.yaml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
